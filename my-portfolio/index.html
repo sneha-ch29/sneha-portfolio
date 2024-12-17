@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneha Mahato - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <nav class="navbar">
+        <div class="logo">Sneha Mahato</div>
+        <div class="nav-links">
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="text-content">
+                <h1>Hi, I am Sneha Mahato</h1>
+                <p>A passionate software engineer with expertise in building scalable microservices.</p>
+                <a href="sneha_resume.pdf" download class="btn">Download Resume</a>
+            </div>
+            <div class="profile-pic">
+                <img src="profile.jpg" alt="Sneha Mahato">
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- About Me Section -->
+    <section id="about" class="section animate">
+        <h2>About Me</h2>
+        <p>
+            A software engineer with 3+ years of experience in Java Spring Boot development, 
+            adept at designing scalable microservices architectures. Proficient in Hibernate, 
+            AWS cloud integration, and RESTful API development. Skilled in delivering high-quality 
+            software solutions with a focus on scalability, performance, and security. 
+            Strong problem-solver and a collaborative team player in fast-paced environments.
+        </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section animate">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Developed a scalable microservice system for enterprise applications.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Integrated AWS services for cloud deployment and management.</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Built RESTful APIs with Spring Boot, ensuring optimal performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section animate">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>Hibernate</span>
+            <span>AWS</span>
+            <span>REST APIs</span>
+            <span>Microservices</span>
+            <span>Git</span>
+        </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section id="contact" class="section animate">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, feel free to reach out!</p>
+        <div class="contact-details">
+            <p><strong>Email:</strong> <a href="mahatosneha0329@gmail.com">snehamahato@example.com</a></p>
+            <p><strong>Phone:</strong> +91-1234567890</p>
+            <p><strong>Location:</strong> Jamshedpur, Jharkhand</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sneha-mahato-280b24237/" target="_blank">linkedin.com/in/snehamahato</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/sneha-ch29?tab=projects" target="_blank">github.com/snehamahato</a></p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth Scroll Navigation
+        const links = document.querySelectorAll('.nav-links a');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer Animation Effect
+        const sections = document.querySelectorAll('.section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
